@@ -1,0 +1,6 @@
+{
+  "school": {
+    "name": "Six School",
+    "age": "This year is {{age}}"
+  }
+}

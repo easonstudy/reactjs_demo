@@ -1,0 +1,15 @@
+.logo {
+    background-image: url(../images/logo.png)
+}
+
+.logo::before {
+    background-image: url(../images/logo_new.png)
+}
+
+.darkBg .logo, .header-collapse .logo {
+    background-image: url(../images/logo_white.png)
+}
+
+.liveStreaming-defaultImage .logo-large, .step4 .imgBox::after, .step4 .imgBox::before {
+    background-image: url(../images/logo.png)
+}
