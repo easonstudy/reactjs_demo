@@ -15,17 +15,12 @@ class Calculator extends Component {
 
 	}
 
-	addNumber() {
-		const {dispatch} = this.props;
-		dispatch(add());
-	}
-
 	render() {
 		const {number} = this.props;
 		return <div>
 			Calculator : {number} <br/>
-			<button onClick={() => this.props.onAddNumber()} value="Add"/>
-			<button onClick={() => this.props.onReduce()} value="Reduce"/>
+			<button onClick={() => this.props.onAdd()}>Add</button>
+			<button onClick={() => this.props.onReduce()}>Reduce</button>
 		</div>
 	}
 
@@ -38,9 +33,8 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-	debugger;
 	return {
-		onAddNumber: () => dispatch(add()),
+		onAdd: () => dispatch(add()),
 		onReduce: () => dispatch(reduce())
 	};
 }

@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import {Router, Route, IndexRoute} from 'react-router'
-import {App, Auth, Error, Sports, BetListFull, Statement, Result, Setting} from './components'
+import {App, Auth, Error, BetListFull} from './components'
 
 module.exports = (
 	<Router history={history}>

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link, browserHistory} from 'react-router'
 
 import Calculator from '../containers/Calculator'
+import Language from '../containers/Language'
 
 class App extends Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ class App extends Component {
 					<Link to="/betListFull">BetList Full</Link>
 
 					<Calculator />
+					{/*<Language />*/}
 				</div>
 	}
 }

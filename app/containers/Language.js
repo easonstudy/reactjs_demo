@@ -5,8 +5,6 @@ import React, {Component} from 'react'
 import {browserHistory} from 'react-router'
 import i18n from '../i18n';
 
-import {Util} from '../../utils'
-
 class Language extends Component {
 	//初始化STATE
 	constructor(props) {
@@ -29,16 +27,14 @@ class Language extends Component {
 		}
 
 		i18n.changeLanguage(newLang, () => {
-			//window.location.href = "http://192.168.88.215:8080/sports";
 			localStorage.setItem("language", newLang);
-			browserHistory.go('/sport')
 		})
 		this.setState({dropdownActive: false});
 	}
 
 	render() {
 		let title, selected;
-		title = selected = Util.language[localStorage.getItem("language")].text;
+		//title = selected = Util.language[localStorage.getItem("language")].text;
 
 		return (
 			<div className={( (this.state.dropdownActive == "1") ? "dropdownActive" : "") + " dropdown tool language"}
