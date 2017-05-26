@@ -4,9 +4,10 @@
 export const CALU_ADD = 'CALU_ADD';
 export const CALU_REDUCE = 'CALU_REDUCE';
 
-export function add() {
+export function add(number) {
 	return {
-		type: CALU_ADD
+		type: CALU_ADD,
+		number: number
 	}
 }
 

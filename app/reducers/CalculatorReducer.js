@@ -14,15 +14,16 @@ const initialState = {
 function update(state = initialState, action) {
 	switch (action.type) {
 		case CALU_ADD:
+
 			return {
 				...state,
-				number: this.state.number + 1
+				number: state.number + 1
 			}
 			break;
 		case CALU_REDUCE:
 			return {
 				...state,
-				number: this.state.number - 1
+				number: state.number - 1
 			}
 			break;
 		default:

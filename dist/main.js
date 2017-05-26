@@ -15104,9 +15104,10 @@ exports.reduce = reduce;
 var CALU_ADD = exports.CALU_ADD = 'CALU_ADD';
 var CALU_REDUCE = exports.CALU_REDUCE = 'CALU_REDUCE';
 
-function add() {
+function add(number) {
 	return {
-		type: CALU_ADD
+		type: CALU_ADD,
+		number: number
 	};
 }
 
@@ -31690,8 +31691,17 @@ var Calculator = function (_Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {}
 	}, {
+		key: 'addNumber',
+		value: function addNumber() {
+			var dispatch = this.props.dispatch;
+
+			dispatch((0, _CalculatorAction.add)());
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this2 = this;
+
 			var number = this.props.number;
 
 			return _react2.default.createElement(
@@ -31702,10 +31712,10 @@ var Calculator = function (_Component) {
 				' ',
 				_react2.default.createElement('br', null),
 				_react2.default.createElement('button', { onClick: function onClick() {
-						return (0, _CalculatorAction.add)();
+						return _this2.addNumber();
 					}, value: 'Add' }),
 				_react2.default.createElement('button', { onClick: function onClick() {
-						return (0, _CalculatorAction.reduce)();
+						return _this2.props.onReduce;
 					}, value: 'Reduce' })
 			);
 		}
@@ -31720,7 +31730,15 @@ function mapStateToProps(state) {
 	};
 }
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(_CalculatorAction.add, _CalculatorAction.reduce)(Calculator);
+function mapDispatchToProps(dispatch) {
+	return {
+		onReduce: function onReduce() {
+			return dispatch((0, _CalculatorAction.reduce)());
+		}
+	};
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Calculator);
 
 /***/ }),
 /* 308 */
@@ -31824,13 +31842,15 @@ function update() {
 
 	switch (action.type) {
 		case _CalculatorAction.CALU_ADD:
+
 			return _extends({}, state, {
-				number: this.state.number + 1
+				number: state.number + 1
 			});
 			break;
 		case _CalculatorAction.CALU_REDUCE:
+			debugger;
 			return _extends({}, state, {
-				number: this.state.number - 1
+				number: state.number - 1
 			});
 			break;
 		default:
