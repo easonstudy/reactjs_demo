@@ -2,7 +2,6 @@
  * Created by gmh on 2017/3/3 0003.
  */
 import React, {Component} from 'react'
-import {browserHistory} from 'react-router'
 import i18n from '../i18n';
 
 class Language extends Component {
@@ -34,7 +33,7 @@ class Language extends Component {
 
 	render() {
 		let title, selected;
-		//title = selected = Util.language[localStorage.getItem("language")].text;
+		title = selected = localStorage.getItem("language");
 
 		return (
 			<div className={( (this.state.dropdownActive == "1") ? "dropdownActive" : "") + " dropdown tool language"}
