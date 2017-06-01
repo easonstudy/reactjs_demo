@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Link, browserHistory} from 'react-router'
 
+import {HttpUtil} from '../utils'
+
 import Calculator from '../containers/Calculator'
 import Language from '../containers/Language'
 
@@ -10,6 +12,10 @@ class App extends Component {
 	}
 
 	componentDidMount() {
+		HttpUtil.get("../app/data/login.json").then(res => {
+			console.log(res);
+		})
+
 		this.timer = setTimeout(function () {
 
 		}, 2000);

@@ -3,9 +3,12 @@
  */
 let HttpUtil = {};
 
-let defaultHeader = new Headers({
+/*let defaultHeader = new Headers({
 	"Content-Type": "application/json; charset=UTF-8",
 	'Authorization-Token': sessionStorage.getItem("token")
+});*/
+let defaultHeader = new Headers({
+    "Content-Type": "application/json; charset=UTF-8"
 });
 
 /**
